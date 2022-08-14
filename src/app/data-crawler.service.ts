@@ -14,6 +14,7 @@ export class DataCrawlerService {
   }
 
   getPokemonDetails(name: string){
+    name = name.toLowerCase();
     return this.http.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
   }
 }

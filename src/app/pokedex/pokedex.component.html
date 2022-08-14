@@ -92,7 +92,7 @@
 </div>
 
 <div class="pokemon-grid">
-    <div class="box" *ngFor="let i of pokemon | paginate: {itemsPerPage: 12, currentPage: page, totalItems: pokemonCount}" 
+    <div class="box" *ngFor="let i of pokemon | paginate: {itemsPerPage: 48, currentPage: page, totalItems: pokemonCount}" 
     [ngStyle]="{'background-color': checkColor(i.types[0].type.name)}">
         <div class="button-container">
             <button class="button-one" (click)="select(i)">Choose Pokemon 1</button><br>

@@ -44,7 +44,7 @@
 
 .details-grid{
     margin: auto;
-    width: 70%;
+    width: 90%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 3px;

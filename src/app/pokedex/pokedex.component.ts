@@ -23,10 +23,11 @@ export class PokedexComponent implements OnInit {
   }
 
   getPokemon(){
-    this.crawler.getPokedex(12, this.page * 12 - 12).subscribe((res: any) => {
+    this.crawler.getPokedex(48, this.page * 48 - 48).subscribe((res: any) => {
       this.pokemonCount = res.count
       res.results.forEach((element: { name: string; }) => {
         this.crawler.getPokemonDetails(element.name).subscribe((uniqres: any) => {
+          uniqres.name = uniqres.name.charAt(0).toUpperCase() + uniqres.name.slice(1);
           this.pokemon.push(uniqres)
           this.pokemon = this.pokemon.sort((a, b) => a.id - b.id)
         })
@@ -37,6 +38,7 @@ export class PokedexComponent implements OnInit {
   select(i: any){
     this.crawler.getPokemonDetails(i.name).subscribe((uniqres: any) => {
         this.selectedPokemon.pop()
+        uniqres.name = uniqres.name.charAt(0).toUpperCase() + uniqres.name.slice(1);
         this.selectedPokemon.push(uniqres)
         this.selectedPokemonScore = uniqres.stats[0].base_stat + uniqres.stats[1].base_stat + uniqres.stats[2].base_stat + 
                                     uniqres.stats[3].base_stat + uniqres.stats[4].base_stat + uniqres.stats[5].base_stat
@@ -47,6 +49,7 @@ export class PokedexComponent implements OnInit {
   select2(i: any){
     this.crawler.getPokemonDetails(i.name).subscribe((uniqres: any) => {
         this.selectedPokemon2.pop()
+        uniqres.name = uniqres.name.charAt(0).toUpperCase() + uniqres.name.slice(1);
         this.selectedPokemon2.push(uniqres)
         this.selectedPokemonScore2 = uniqres.stats[0].base_stat + uniqres.stats[1].base_stat + uniqres.stats[2].base_stat + 
                                     uniqres.stats[3].base_stat + uniqres.stats[4].base_stat + uniqres.stats[5].base_stat
