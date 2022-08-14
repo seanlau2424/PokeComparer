@@ -1,0 +1,212 @@
+.pokemon-grid{
+    display: grid;
+    grid-gap: 15px;
+    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(15%, 1fr));
+}
+
+.selected-container{
+    box-shadow: 1px 1px 3px;
+    border-radius: 10px;
+    height: 250px;
+}
+
+.choose-msg-container{
+    height: 100%;
+    display: flex;               
+    align-items: center;
+    justify-content: center;
+}
+
+.chosen-one{
+    text-align: center;
+}
+
+.choose-msg{
+    font-family: fantasy;
+    font-size: 18px;
+}
+
+.sprite{
+    transform: scale(1.1);
+    padding-top: 15px;
+}
+
+.details{
+    color: white;
+    font-family: fantasy;
+    font-size: 18px;
+}
+
+.details-container{
+    padding: 0px 0px 20px 0px;
+}
+
+.details-grid{
+    margin: auto;
+    width: 70%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 3px;
+    color: black;
+}
+
+.select-grid{
+    margin: auto;
+    width: 70%;
+    display: grid;
+    grid-template-columns: 4fr 1fr 4fr;
+    padding: 10px;
+    color: black;
+}
+
+.left-grid{
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    font-family: fantasy;
+    font-size: 18px;
+}
+
+.left-grid-first{
+    padding-top: 13%;
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    font-family: fantasy;
+    font-size: 18px;
+}
+
+.right-grid-first{
+    text-align: center;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    font-family: fantasy;
+    font-size: 18px;
+}
+
+.right-grid{
+    padding-top: 13%;
+    text-align: center;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    font-family: fantasy;
+    font-size: 18px;
+}
+
+.left-grid-select{
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    font-family: fantasy;
+    font-size: 18px;
+    padding-right: 7%;
+}
+
+.right-grid-select{
+    text-align: center;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    font-family: fantasy;
+    font-size: 18px;
+    padding-left: 7%;
+}
+
+.left-grid-stats{
+    text-align: left;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    font-family: fantasy;
+    font-size: 18px;
+}
+
+.right-grid-stats{
+    text-align: right;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    font-family: fantasy;
+    font-size: 18px;
+}
+
+.pokemon-grid .box{
+    text-align: center;
+    width: auto;
+    height: 100%;
+    box-shadow: 1px 1px 3px;
+    border-radius: 10px;
+}
+
+.pokemon-grid .box:hover{
+    opacity: 0.3;
+}
+
+.pokemon-grid .box > .button-container {
+    display: none;
+}
+
+.pokemon-grid .box:hover > .button-container {
+    position: absolute;
+    z-index: 1000;
+    display: block;
+}
+
+.button-one{
+    width: 100%;
+    opacity: 1;
+    border: 0;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: fantasy;
+    font-size: 18px;
+    margin-top: 30%;
+    margin-left: 40%;
+}
+
+.button-two{
+    width: 100%;
+    opacity: 1;
+    border: 0;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10%;
+    margin-left: 40%;
+    font-family: fantasy;
+    font-size: 18px;
+}
+
+.button-one:hover{
+    cursor: pointer;
+}
+
+.button-two:hover{
+    cursor: pointer;
+}
+
+.battle-button{
+    color: white;
+    font-family: fantasy;
+    font-size: 25px;
+    width: 100%;
+    height: 40%;
+    background-color: #FC4F4F;
+    border: 0;
+    border-radius: 10px;
+    margin-top: 20%;
+    margin-bottom: 20%;
+}
+
+.battle-button:hover{
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.winner-msg{
+    font-family: fantasy;
+    font-size: 18px;
+    color: #31A215
+}
+
+pagination-controls{
+    text-align: center;
+}
+

@@ -1,0 +1,112 @@
+<div class="selected-main">
+    <div class="select-grid">
+        <div class="left-grid-select">
+            <div class="selected-container">
+                <div class="choose-msg-container" *ngIf="selectedPokemon.length == 0"><div class="choose-msg">Choose a Pokemon below!</div></div>
+                <div class="chosen-one" *ngFor="let i of selectedPokemon">
+                    <div class="details-grid">
+                        <div class="left-grid-first">
+                            <label>Base Stats</label><br>
+                            <div class="details-grid">
+                                <div class="left-grid-stats">
+                                    <label>HP:</label><br>
+                                    <label>ATK:</label><br>
+                                    <label>DEF:</label><br>
+                                    <label>SP ATK:</label><br>
+                                    <label>SP DEF:</label><br>
+                                    <label>SPD:</label><br>
+                                    <hr>
+                                    <label>SCORE:</label><br>
+                                </div>
+                                <div class="right-grid-stats">
+                                    <label>{{i.stats[0].base_stat}}</label><br>
+                                    <label>{{i.stats[1].base_stat}}</label><br>
+                                    <label>{{i.stats[2].base_stat}}</label><br>
+                                    <label>{{i.stats[3].base_stat}}</label><br>
+                                    <label>{{i.stats[4].base_stat}}</label><br>
+                                    <label>{{i.stats[5].base_stat}}</label><br>
+                                    <hr>
+                                    <label style="color: #31A215">{{selectedPokemonScore}}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right-grid-first">
+                            <img class="sprite" [src]="i.sprites.front_default" alt="Image not found" onerror="this.onerror=null;this.src='assets/missing.png';"><br>
+                            <label style="font-size: 25px;">{{i.name}}</label><br><br>
+                            <label [ngStyle]="{'color': checkColor(i.types[0].type.name)}">
+                                {{i.types[0].type.name}}
+                                <span *ngIf="i.types[1]">/ {{i.types[1].type.name}}</span>
+                            </label>                    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center;">
+            <button class="battle-button" (click)="compareStats()">COMPARE</button>
+            <label class="winner-msg" *ngIf="winner">{{winner}}</label>
+        </div>
+        <div class="right-grid-select">
+            <div class="selected-container">
+                <div class="choose-msg-container" *ngIf="selectedPokemon2.length == 0"><div class="choose-msg">Choose a Pokemon below!</div></div>
+                <div class="chosen-one" *ngFor="let i of selectedPokemon2">
+                    <div class="details-grid">
+                        <div class="left-grid">
+                            <img class="sprite" [src]="i.sprites.front_default" alt="Image not found" onerror="this.onerror=null;this.src='assets/missing.png';"><br>
+                            <label style="font-size: 25px;">{{i.name}}</label><br><br>
+                            <label [ngStyle]="{'color': checkColor(i.types[0].type.name)}">
+                                {{i.types[0].type.name}}
+                                <span *ngIf="i.types[1]">/ {{i.types[1].type.name}}</span>
+                            </label>
+                        </div>
+                        <div class="right-grid">
+                            <label>Base Stats</label><br>
+                            <div class="details-grid">
+                                <div class="left-grid-stats">
+                                    <label>HP:</label><br>
+                                    <label>ATK:</label><br>
+                                    <label>DEF:</label><br>
+                                    <label>SP ATK:</label><br>
+                                    <label>SP DEF:</label><br>
+                                    <label>SPD:</label><br>
+                                    <hr>
+                                    <label>SCORE:</label><br>
+                                </div>
+                                <div class="right-grid-stats">
+                                    <label>{{i.stats[0].base_stat}}</label><br>
+                                    <label>{{i.stats[1].base_stat}}</label><br>
+                                    <label>{{i.stats[2].base_stat}}</label><br>
+                                    <label>{{i.stats[3].base_stat}}</label><br>
+                                    <label>{{i.stats[4].base_stat}}</label><br>
+                                    <label>{{i.stats[5].base_stat}}</label><br>
+                                    <hr>
+                                    <label style="color: #31A215">{{selectedPokemonScore2}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pokemon-grid">
+    <div class="box" *ngFor="let i of pokemon | paginate: {itemsPerPage: 12, currentPage: page, totalItems: pokemonCount}" 
+    [ngStyle]="{'background-color': checkColor(i.types[0].type.name)}">
+        <div class="button-container">
+            <button class="button-one" (click)="select(i)">Choose Pokemon 1</button><br>
+            <button class="button-two" (click)="select2(i)">Choose Pokemon 2</button>
+        </div>
+        <img class="sprite" [src]="i.sprites.front_default" alt="Image not found" onerror="this.onerror=null;this.src='assets/missing.png';"><br>
+        <div class="details-container">
+            <label class="details"># {{i.id}}</label><br>
+            <label class="details">{{i.name}}</label><br>
+            <label class="details">
+                {{i.types[0].type.name}}
+                <span *ngIf="i.types[1]">/ {{i.types[1].type.name}}</span>
+            </label>
+        </div>
+    </div>
+</div> 
+<pagination-controls (pageChange)="page = $event; pokemon = []; getPokemon()"></pagination-controls>

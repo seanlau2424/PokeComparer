@@ -1,0 +1,38 @@
+.header{
+    text-align: center;
+    padding: 5px 0px 10px 0px;
+    background-color: #FC4F4F;
+}
+
+.footer{
+    text-align: center;
+    padding: 8px 0px 8px 0px;
+    background-color: #FC4F4F;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+.title{
+    font-size: 25px;
+    color: white;
+    font-family: fantasy;
+}
+
+.footer-msg{
+    font-size: 15px;
+    color: white;
+    font-family: fantasy;
+}
+
+.image{
+    height: auto;
+    width: 3%;
+}
+
+.pokedex-container{
+    margin: 2%;
+    padding: 5px;
+    box-shadow: 1px 1px 3px;
+    border-radius: 20px;
+}
